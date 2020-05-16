@@ -1,0 +1,32 @@
+html,
+body {
+	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+		url('./assets/bg.jpg');
+	background-size: 100vw 100vh;
+	background-repeat: no-repeat;
+}
+
+.ui.checkbox label,
+.ui.checkbox + label {
+	font-size: 18px;
+	color: white;
+}
+
+i {
+	color: white !important;
+}
+
+.header {
+	font-size: 64px;
+	color: white !important;
+}
+
+.ui.celled.grid > .row {
+	box-shadow: 0 -1px 0 0 #000;
+}
+
+.ui.celled.grid > .column:not(.row),
+.ui.celled.grid > .row > .column {
+	-webkit-box-shadow-box-shadow: -1px 0 0 0 #000;
+	box-shadow: -1px 0 0 0 #000;
+}
