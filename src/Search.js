@@ -7,21 +7,7 @@ import {
 	Button,
 	Header,
 	Segment,
-	Dropdown,
 } from 'semantic-ui-react';
-
-const unit = [
-	{
-		key: 'Imperial',
-		text: 'Imperial',
-		value: 'imperial',
-	},
-	{
-		key: 'Metric',
-		text: 'Metric',
-		value: 'metric',
-	},
-];
 
 const Search = (props) => {
 	return (
@@ -44,14 +30,9 @@ const Search = (props) => {
 						name='unit'
 						label='Imperial'
 						value='imperial'
-						style={{ 'margin-right': '80px' }}
+						style={{ padding: '10px' }}
 					/>
-					<Radio
-						name='unit'
-						label='Metric'
-						value='metric'
-						style={{ 'margin-left': '80px' }}
-					/>
+					<Radio name='unit' label='Metric' value='metric' />
 				</Form.Field>
 
 				<Form.Field>

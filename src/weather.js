@@ -1,6 +1,7 @@
 import React from 'react';
 import './css/weather-icons.css';
 import { Header, Container, Grid, Divider } from 'semantic-ui-react';
+import { format } from 'date-fns';
 
 const Weather = (props) => {
 	if (props.location === '') {
@@ -13,32 +14,25 @@ const Weather = (props) => {
 		);
 	} else {
 		return (
-			<Container
-				textAlign='center'
-				style={{
-					'padding-left': '65px',
-					'padding-right': '65px',
-				}}>
+			<Container textAlign='center'>
 				{props.unit === 'imperial' && (
 					<Grid columns='3' textAlign='center'>
 						<Grid.Row
 							textAlign='center'
 							style={{
-								height: '95px',
-								'align-content': 'center',
+								'padding-top': '40px',
 							}}>
-							<Header as='h1'>Current weather for {props.location}</Header>
+							<Header as='h1'>
+								Current weather for
+								<br /> {props.location}
+							</Header>
 						</Grid.Row>
 						<Divider hidden section />
-						<Grid.Row
-							style={{
-								height: '95px',
-								'align-content': 'center',
-							}}>
-							<Grid.Column width={3}>
+						<Grid.Row textAlign='center'>
+							<Grid.Column textAlign='center' width={3}>
 								<i
 									className={`wi ${props.weatherIcon}`}
-									style={{ 'font-size': '64px' }}
+									style={{ 'font-size': '80px' }}
 								/>
 								<Header as='h2'>Sky: {props.sky}</Header>
 							</Grid.Column>
@@ -46,108 +40,104 @@ const Weather = (props) => {
 						<Divider hidden section />
 						<Grid.Row
 							style={{
-								height: '95px',
-								'align-content': 'center',
+								'padding-top': '50px',
 							}}>
 							<Grid.Column>
 								<Header as='h2'>
-									Temp: {props.temp}
+									Temp: <br />
+									{props.temp}
 									<i
 										className={`wi wi-fahrenheit`}
-										style={{ 'font-size': '42px' }}
+										style={{ 'font-size': '36px' }}
 									/>
 								</Header>
 							</Grid.Column>
 
 							<Grid.Column>
 								<Header as='h2'>
-									Max: {props.tempmax}
+									Max: <br />
+									{props.tempmax}
 									<i
 										className={`wi wi-fahrenheit`}
-										style={{ 'font-size': '42px' }}
+										style={{ 'font-size': '36px' }}
 									/>
 								</Header>
 							</Grid.Column>
 
 							<Grid.Column>
 								<Header as='h2'>
-									Min: {props.tempmin}
+									Min: <br />
+									{props.tempmin}
 									<i
 										className={`wi wi-fahrenheit`}
-										style={{ 'font-size': '42px' }}
+										style={{ 'font-size': '36px' }}
 									/>
+								</Header>
+							</Grid.Column>
+						</Grid.Row>
+						<Divider hidden section />
+						<Grid.Row style={{}}>
+							<Grid.Column>
+								<Header as='h2'>
+									Feels Like: <br />
+									{props.feels_like}
+									<i
+										className={`wi wi-fahrenheit`}
+										style={{ 'font-size': '36px' }}
+									/>
+								</Header>
+							</Grid.Column>
+							<Grid.Column>
+								<Header as='h2'>
+									Humidity: <br />
+									{props.humidity}%
+								</Header>
+							</Grid.Column>
+						</Grid.Row>
+						<Divider hidden section />
+						<Grid.Row style={{}}>
+							<Grid.Column>
+								<Header as='h2'>
+									Wind: <br />
+									{props.wind}mph
 								</Header>
 							</Grid.Column>
 						</Grid.Row>
 						<Divider hidden section />
 						<Grid.Row
 							style={{
-								height: '95px',
-								'align-content': 'center',
+								'text-align': 'center',
 							}}>
-							<Grid.Column>
+							<Grid.Column width='9' style={{ padding: '20px' }}>
 								<Header as='h2'>
-									Feels Like: {props.feels_like}
-									<i
-										className={`wi wi-fahrenheit`}
-										style={{ 'font-size': '42px' }}
-									/>
-								</Header>
-							</Grid.Column>
-							<Grid.Column>
-								<Header as='h2'>Humidity: {props.humidity}%</Header>
-							</Grid.Column>
-						</Grid.Row>
-						<Divider hidden section />
-						<Grid.Row
-							style={{
-								height: '95px',
-								'align-content': 'center',
-							}}>
-							<Grid.Column>
-								<Header as='h2'>Wind: {props.wind}mph</Header>
-							</Grid.Column>
-						</Grid.Row>
-						<Divider hidden section />
-						<Grid.Row
-							style={{
-								height: '95px',
-								'align-content': 'center',
-							}}>
-							<Grid.Column>
-								<Header as='h2'>
-									Sunrise: {new Date(props.sunrise * 1000).toLocaleString()}
+									Sunrise: <br />
+									{format(new Date(props.sunrise * 1000), 'Pp')}
 								</Header>
 								<i
 									className={`wi wi-sunrise`}
-									style={{ 'font-size': '42px' }}
+									style={{ 'font-size': '36px' }}
 								/>
 							</Grid.Column>
-							<Grid.Column>
+							<Grid.Column width='9' style={{ padding: '20px' }}>
 								<Header as='h2'>
-									Sunset: {new Date(props.sunset * 1000).toLocaleString()}
+									Sunset: <br />
+									{format(new Date(props.sunset * 1000), 'Pp')}
 								</Header>
-								<i className={`wi wi-sunset`} style={{ 'font-size': '42px' }} />
+								<i className={`wi wi-sunset`} style={{ 'font-size': '36px' }} />
 							</Grid.Column>
 						</Grid.Row>
 					</Grid>
 				)}{' '}
 				{props.unit === 'metric' && (
 					<Grid columns='3' textAlign='center'>
-						<Grid.Row
-							textAlign='center'
-							style={{
-								height: '95px',
-								'align-content': 'center',
-							}}>
-							<Header as='h1'>Current weather for {props.location}</Header>
+						<Grid.Row textAlign='center' style={{}}>
+							<Header as='h1'>
+								Current weather for <br />
+								{props.location}
+							</Header>
 						</Grid.Row>
 						<Divider hidden section />
-						<Grid.Row
-							style={{
-								height: '95px',
-								'align-content': 'center',
-							}}>
+						<Grid.Row style={{}}>
 							<Grid.Column width={3}>
 								<i
 									className={`wi ${props.weatherIcon}`}
@@ -157,90 +147,86 @@ const Weather = (props) => {
 							</Grid.Column>
 						</Grid.Row>
 						<Divider hidden section />
-						<Grid.Row
-							style={{
-								height: '95px',
-								'align-content': 'center',
-							}}>
+						<Grid.Row style={{}}>
 							<Grid.Column>
 								<Header as='h2'>
-									Temp: {props.temp}
+									Temp: <br />
+									{props.temp}
 									<i
 										className={`wi wi-celsius`}
-										style={{ 'font-size': '42px' }}
+										style={{ 'font-size': '36px' }}
 									/>
 								</Header>
 							</Grid.Column>
 
 							<Grid.Column>
 								<Header as='h2'>
-									Max: {props.tempmax}
+									Max: <br />
+									{props.tempmax}
 									<i
 										className={`wi wi-celsius`}
-										style={{ 'font-size': '42px' }}
+										style={{ 'font-size': '36px' }}
 									/>
 								</Header>
 							</Grid.Column>
 
 							<Grid.Column>
 								<Header as='h2'>
-									Min: {props.tempmin}
+									Min: <br />
+									{props.tempmin}
 									<i
 										className={`wi wi-celsius`}
-										style={{ 'font-size': '42px' }}
+										style={{ 'font-size': '36px' }}
 									/>
 								</Header>
 							</Grid.Column>
 						</Grid.Row>
 						<Divider hidden section />
-						<Grid.Row
-							style={{
-								height: '95px',
-								'align-content': 'center',
-							}}>
+						<Grid.Row style={{}}>
 							<Grid.Column>
 								<Header as='h2'>
-									Feels Like: {props.feels_like}
+									Feels Like: <br />
+									{props.feels_like}
 									<i
 										className={`wi wi-celsius`}
-										style={{ 'font-size': '42px' }}
+										style={{ 'font-size': '36px' }}
 									/>
 								</Header>
 							</Grid.Column>
 							<Grid.Column>
-								<Header as='h2'>Humidity: {props.humidity}%</Header>
+								<Header as='h2'>
+									Humidity: <br />
+									{props.humidity}%
+								</Header>
 							</Grid.Column>
 						</Grid.Row>
 						<Divider hidden section />
-						<Grid.Row
-							style={{
-								height: '95px',
-								'align-content': 'center',
-							}}>
-							<Grid.Column>
-								<Header as='h2'>Wind: {props.wind}mph</Header>
-							</Grid.Column>
-						</Grid.Row>
-						<Divider hidden section />
-						<Grid.Row
-							style={{
-								height: '95px',
-								'align-content': 'center',
-							}}>
+						<Grid.Row style={{}}>
 							<Grid.Column>
 								<Header as='h2'>
-									Sunrise: {new Date(props.sunrise * 1000).toLocaleString()}
+									Wind: <br />
+									{props.wind}mph
+								</Header>
+							</Grid.Column>
+						</Grid.Row>
+						<Divider hidden section />
+						<Grid.Row style={{}}>
+							<Grid.Column>
+								<Header as='h2'>
+									Sunrise: <br />
+									{new Date(props.sunrise * 1000).toLocaleString()}
 								</Header>
 								<i
 									className={`wi wi-sunrise`}
-									style={{ 'font-size': '42px' }}
+									style={{ 'font-size': '36px' }}
 								/>
 							</Grid.Column>
 							<Grid.Column>
 								<Header as='h2'>
-									Sunset: {new Date(props.sunset * 1000).toLocaleString()}
+									Sunset: <br />
+									{new Date(props.sunset * 1000).toLocaleString()}
 								</Header>
-								<i className={`wi wi-sunset`} style={{ 'font-size': '42px' }} />
+								<i className={`wi wi-sunset`} style={{ 'font-size': '36px' }} />
 							</Grid.Column>
 						</Grid.Row>
 					</Grid>

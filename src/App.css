@@ -2,8 +2,8 @@ html,
 body {
 	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
 		url('./assets/bg.jpg');
-	background-size: 100vw 100vh;
-	background-repeat: no-repeat;
+
+	background-repeat: inherit;
 }
 
 .ui.checkbox label,
