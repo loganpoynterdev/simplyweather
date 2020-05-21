@@ -214,7 +214,7 @@ const Weather = (props) => {
 							<Grid.Column>
 								<Header as='h2'>
 									Sunrise: <br />
-									{new Date(props.sunrise * 1000).toLocaleString()}
+									{format(new Date(props.sunrise * 1000), 'Pp')}
 								</Header>
 								<i
 									className={`wi wi-sunrise`}
@@ -224,7 +224,7 @@ const Weather = (props) => {
 							<Grid.Column>
 								<Header as='h2'>
 									Sunset: <br />
-									{new Date(props.sunset * 1000).toLocaleString()}
+									{format(new Date(props.sunset * 1000), 'Pp')}
 								</Header>
 								<i className={`wi wi-sunset`} style={{ 'font-size': '36px' }} />
 							</Grid.Column>
